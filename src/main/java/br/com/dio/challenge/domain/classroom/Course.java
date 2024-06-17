@@ -1,27 +1,10 @@
 package br.com.dio.challenge.domain.classroom;
 
-public class Course {
-    private String title;
-    private String description;
+public class Course extends Content{
+
     private int workload;
 
     public Course() {
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public int getWorkload() {
@@ -32,10 +15,16 @@ public class Course {
         this.workload = workload;
     }
 
+
+    @Override
+    public double calculateXP() {
+        return XP_STANDARD * workload;
+    }
+
     @Override
     public String toString() {
-        return  "Titulo= " + title + '\n' +
-                "Description= " + description + '\n' +
-                "Carga Horaria= " + workload;
+        return "Titulo= " + getTitle() + ',' +
+                "Description= " + getDescription() + ',' +
+                "Carga Horaria= " + getWorkload();
     }
 }

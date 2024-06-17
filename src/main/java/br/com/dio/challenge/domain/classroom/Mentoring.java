@@ -2,9 +2,8 @@ package br.com.dio.challenge.domain.classroom;
 
 import java.time.LocalDate;
 
-public class Mentoring {
-    private String title;
-    private String description;
+public class Mentoring extends Content {
+
     private LocalDate date;
 
     public Mentoring() {
@@ -18,26 +17,15 @@ public class Mentoring {
         this.date = date;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    @Override
+    public double calculateXP() {
+        return XP_STANDARD + 20d;
     }
 
     @Override
     public String toString() {
-        return  "Titulo='" + title + '\n' +
-                "Descricao='" + description + '\n' +
-                "Data=" + date;
+        return "Titulo= " + getTitle() + ',' +
+                "Descricao= " + getDescription() + ',' +
+                "Date= " + getDate();
     }
 }
